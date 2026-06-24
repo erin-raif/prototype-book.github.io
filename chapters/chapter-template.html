@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter Template Questions</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script>
+      // Copy this file to create a new chapter page and replace this data.
+      window.chapterConfig = {
+        chapterTitle: "Chapter Template",
+        categories: [
+          {
+            name: "Category Name",
+            questions: [
+              {
+                type: "basic",
+                prompt: "Write your question prompt here.",
+                answer: "Write the answer here.",
+                hint: "Optional hint text. Remove this field if no hint is needed."
+              },
+              {
+                type: "multiple-choice",
+                prompt: "Write a multiple-choice question here.",
+                options: ["Option A", "Option B", "Option C"],
+                correctIndex: 1,
+                answer: "Optional full explanation shown after submission."
+              },
+              {
+                type: "numeric",
+                prompt: "Write a numeric-answer question here.",
+                answer: "3.14",
+                tolerance: 0.01,
+                hint: "Optional hint for numeric questions."
+              }
+            ]
+          }
+        ]
+      };
+    </script>
+    <script defer src="/scripts/questions.js"></script>
+    <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1 id="chapter-title">Chapter Questions</h1>
+      <a href="/index.html">← Back to chapters</a>
+    </header>
+
+    <main class="content" id="question-root"></main>
+  </body>
+</html>
