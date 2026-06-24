@@ -1,0 +1,94 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f7f7fb;
+  color: #1b1b1f;
+}
+
+.page-header,
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.page-header h1 {
+  margin-bottom: 0.25rem;
+}
+
+.chapter-list {
+  list-style: none;
+  padding: 0;
+}
+
+.chapter-list li {
+  margin: 0.5rem 0;
+}
+
+.category-section {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.question-card {
+  border-top: 1px solid #ececf2;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.question-card:first-of-type {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.question-button,
+.option-button {
+  border: 1px solid #c7c7d2;
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  margin: 0.25rem 0.4rem 0.25rem 0;
+  cursor: pointer;
+}
+
+.option-button.selected {
+  border-color: #4a61dd;
+  background: #ebefff;
+}
+
+.hint-box,
+.answer-box {
+  margin-top: 0.5rem;
+  background: #f2f4ff;
+  border-left: 4px solid #4a61dd;
+  padding: 0.6rem;
+  border-radius: 4px;
+}
+
+.hint-box {
+  background: #f9f6ff;
+  border-left-color: #7a4add;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.numeric-input {
+  width: 110px;
+  padding: 0.35rem;
+  margin-right: 0.5rem;
+}
+
+.mcq-result,
+.numeric-result {
+  margin: 0.4rem 0 0;
+  font-weight: 600;
+}
