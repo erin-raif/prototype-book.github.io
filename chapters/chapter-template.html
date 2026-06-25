@@ -5,73 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter Template Questions</title>
     <link rel="stylesheet" href="../styles.css" />
-    <script>
-      // Copy this file to create a new chapter page and replace this data.
-      window.chapterConfig = {
-        chapterTitle: "Chapter Template",
-        categories: [
-          {
-            name: "Category Name",
-            questions: [
-              {
-                type: "basic",
-                prompt: "Write your question prompt here.",
-                answer: "Write the answer here.",
-                hint: "Optional hint text. Remove this field if no hint is needed."
-              },
-              {
-                type: "multiple-choice",
-                prompt: "Write a multiple-choice question here.",
-                options: ["Option A", "Option B", "Option C"],
-                correctIndex: 1,
-                answer: "Optional full explanation shown after submission."
-              },
-              {
-                type: "numeric",
-                prompt: "Write a numeric-answer question here.",
-                answer: "3.14",
-                tolerance: 0.01,
-                hint: "Optional hint for numeric questions."
-              },
-              {
-                type: "multiple-choice",
-                prompt: "This sample uses an uploaded image. Which category looks like the largest positive forcing in the figure?",
-                image: {
-                  src: "../imgs/forcings.png",
-                  alt: "Sample forcing chart used to demonstrate image questions",
-                  caption: "Images stay inside the question box and keep their proportions."
-                },
-                options: ["Carbon dioxide", "Aerosols", "Contrails", "Land use change"],
-                correctIndex: 0,
-                answer: "Carbon dioxide appears to be the largest positive forcing in the sample figure."
-              },
-              {
-                prompt: "This sample shows a multi-part question.",
-                parts: [
-                  {
-                    label: "(a)",
-                    prompt: "Write one short sentence explaining what makes a question multi-part.",
-                    answer: "A multi-part question has two or more subquestions that are answered separately."
-                  },
-                  {
-                    label: "(b)",
-                    type: "numeric",
-                    prompt: "Evaluate \\(2^3 + 1\\).",
-                    answer: "9",
-                    tolerance: 0
-                  }
-                ],
-                answer: "Part (a): the prompt is split into separate subquestions. Part (b): \\(2^3 + 1 = 9\\)."
-              }
-            ]
-          }
-        ]
-      };
-    </script>
     <script defer src="../scripts/questions.js"></script>
     <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
-  <body>
+  <body data-chapter="chapter-template">
     <header class="page-header">
       <h1 id="chapter-title">Chapter Questions</h1>
       <a href="../index.html">← Back to chapters</a>

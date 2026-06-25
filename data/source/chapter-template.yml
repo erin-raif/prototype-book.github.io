@@ -1,0 +1,51 @@
+chapterTitle: Chapter Template
+categories:
+  - id: category-name
+    name: Category Name
+    questions:
+      - id: template-basic-1
+        type: basic
+        prompt: Write your question prompt here.
+        answer: Write the answer here.
+        hint: Optional hint text. Remove this field if no hint is needed.
+      - id: template-mcq-1
+        type: multiple-choice
+        prompt: Write a multiple-choice question here.
+        options:
+          - Option A
+          - Option B
+          - Option C
+        correctIndex: 1
+        answer: Optional full explanation shown after submission.
+      - id: template-numeric-1
+        type: numeric
+        prompt: Write a numeric-answer question here.
+        answer: "3.14"
+        tolerance: 0.01
+        hint: Optional hint for numeric questions.
+      - id: template-image-1
+        type: multiple-choice
+        prompt: This sample uses an uploaded image. Which category looks like the largest positive forcing in the figure?
+        image:
+          src: ../imgs/forcings.png
+          alt: Sample forcing chart used to demonstrate image questions
+          caption: Images stay inside the question box and keep their proportions.
+        options:
+          - Carbon dioxide
+          - Aerosols
+          - Contrails
+          - Land use change
+        correctIndex: 0
+        answer: Carbon dioxide appears to be the largest positive forcing in the sample figure.
+      - id: template-multipart-1
+        prompt: This sample shows a multi-part question.
+        parts:
+          - label: (a)
+            prompt: Write one short sentence explaining what makes a question multi-part.
+            answer: A multi-part question has two or more subquestions that are answered separately.
+          - label: (b)
+            type: numeric
+            prompt: Evaluate \\(2^3 + 1\\).
+            answer: "9"
+            tolerance: 0
+        answer: Part (a): the prompt is split into separate subquestions. Part (b): \\(2^3 + 1 = 9\\).

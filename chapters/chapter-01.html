@@ -5,89 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 1 Questions</title>
     <link rel="stylesheet" href="../styles.css" />
-    <script>
-      window.chapterConfig = {
-        chapterTitle: "Chapter 1",
-        categories: [
-          {
-            name: "Easy",
-            questions: [
-              {
-                type: "basic",
-                prompt: "Compute \\(2 + 2\\).",
-                answer: "\\(2 + 2 = 4\\)",
-                hint: "Add two and two."
-              },
-              {
-                type: "basic",
-                prompt: "State the derivative of \\(x^2\\).",
-                answer: "The derivative is \\(2x\\)."
-              }
-            ]
-          },
-          {
-            name: "Medium",
-            questions: [
-              {
-                type: "multiple-choice",
-                prompt: "Which expression equals \\(\\int_0^1 x \\; dx\\)?",
-                options: ["0", "1/2", "1", "2"],
-                correctIndex: 1,
-                answer: "\\(\\int_0^1 x \\; dx = 1/2\\)",
-                hint: "Use the power rule for integration."
-              },
-              {
-                type: "multiple-choice",
-                prompt: "The figure below shows several effective radiative forcing categories. Which category has the largest positive contribution?",
-                image: {
-                  src: "../imgs/forcings.png",
-                  alt: "Bar chart of effective radiative forcing by source"
-                },
-                options: ["Carbon dioxide", "Ozone", "Aerosols", "Land use change"],
-                correctIndex: 0,
-                answer: "Carbon dioxide has the largest positive contribution in the chart.",
-                hint: "Look for the longest bar extending to the right."
-              }
-            ]
-          },
-          {
-            name: "Hard",
-            questions: [
-              {
-                type: "numeric",
-                prompt: "Evaluate \\(3^2 + 4^2\\).",
-                answer: "25",
-                hint: "Compute each square, then add.",
-                tolerance: 0
-              },
-              {
-                prompt: "Work through both parts of the question.",
-                parts: [
-                  {
-                    label: "(a)",
-                    prompt: "State one reason an image used in a question should keep its aspect ratio.",
-                    answer: "To avoid distortion and keep the figure readable."
-                  },
-                  {
-                    label: "(b)",
-                    type: "numeric",
-                    prompt: "Evaluate \\(5^2 + 12^2\\).",
-                    answer: "169",
-                    hint: "Work out each square before adding.",
-                    tolerance: 0
-                  }
-                ],
-                answer: "Part (a): preserve the figure's proportions so it stays readable. Part (b): \\(5^2 + 12^2 = 169\\)."
-              }
-            ]
-          }
-        ]
-      };
-    </script>
     <script defer src="../scripts/questions.js"></script>
     <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
-  <body>
+  <body data-chapter="chapter-01">
     <header class="page-header">
       <h1 id="chapter-title">Chapter Questions</h1>
       <a href="../index.html">← Back to chapters</a>

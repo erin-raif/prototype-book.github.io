@@ -1,35 +1,103 @@
 (function () {
-  const chapterConfig = window.chapterConfig;
   const titleNode = document.getElementById("chapter-title");
   const root = document.getElementById("question-root");
+  const inlineChapterConfig = window.chapterConfig;
 
-  if (!chapterConfig || !titleNode || !root) {
+  if (!titleNode || !root) {
     return;
   }
 
-  titleNode.textContent = chapterConfig.chapterTitle + " Questions";
+  void bootstrap();
 
-  chapterConfig.categories.forEach((category) => {
-    const section = document.createElement("section");
-    section.className = "category-section";
+  async function bootstrap() {
+    const chapterConfig = inlineChapterConfig || (await loadChapterConfig());
 
-    const heading = document.createElement("h2");
-    heading.textContent = category.name;
-    section.appendChild(heading);
+    if (!chapterConfig) {
+      renderLoadError("No chapter data was found for this page.");
+      return;
+    }
 
-    category.questions.forEach((question, index) => {
-      const card = document.createElement("article");
-      card.className = "question-card";
+    if (!chapterConfig.chapterTitle || !Array.isArray(chapterConfig.categories)) {
+      renderLoadError("Chapter data is missing a title or categories array.");
+      return;
+    }
 
-      renderQuestionContent(card, question, `Q${index + 1}`);
+    renderChapter(chapterConfig);
+  }
 
-      section.appendChild(card);
+  async function loadChapterConfig() {
+    const chapterId =
+      document.body?.dataset.chapter ||
+      new URLSearchParams(window.location.search).get("chapter");
+
+    if (!chapterId) {
+      return null;
+    }
+
+    const dataBasePath = window.location.pathname.includes("/chapters/")
+      ? "../data/chapters"
+      : "data/chapters";
+    const configUrl = new URL(
+      `${dataBasePath}/${chapterId}.json`,
+      window.location.href,
+    );
+
+    try {
+      const response = await fetch(configUrl);
+
+      if (!response.ok) {
+        return null;
+      }
+
+      return await response.json();
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  function renderChapter(chapterConfig) {
+    titleNode.textContent = chapterConfig.chapterTitle + " Questions";
+
+    chapterConfig.categories.forEach((category) => {
+      const section = document.createElement("section");
+      section.className = "category-section";
+
+      const heading = document.createElement("h2");
+      heading.textContent = category.name;
+      section.appendChild(heading);
+
+      category.questions.forEach((question, index) => {
+        const card = document.createElement("article");
+        card.className = "question-card";
+
+        renderQuestionContent(card, question, `Q${index + 1}`);
+
+        section.appendChild(card);
+      });
+
+      root.appendChild(section);
     });
 
-    root.appendChild(section);
-  });
+    renderMath();
+  }
 
-  renderMath();
+  function renderLoadError(message) {
+    titleNode.textContent = "Questions unavailable";
+    root.innerHTML = "";
+
+    const errorBox = document.createElement("section");
+    errorBox.className = "category-section";
+
+    const heading = document.createElement("h2");
+    heading.textContent = "Load error";
+
+    const body = document.createElement("p");
+    body.textContent = message;
+
+    errorBox.appendChild(heading);
+    errorBox.appendChild(body);
+    root.appendChild(errorBox);
+  }
 
   function createToggleBox(className, content) {
     const box = document.createElement("div");
