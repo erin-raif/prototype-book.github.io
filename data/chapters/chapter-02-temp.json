@@ -1,56 +1,54 @@
 {
-  "chapterTitle": "Chapter Template",
+  "chapterTitle": "Chapter 02",
   "categories": [
     {
-      "id": "category-name",
-      "name": "Category Name",
+      "id": "review",
+      "name": "Review",
       "questions": [
         {
-          "id": "template-basic-1",
-          "prompt": "Write your question prompt here.",
-          "hint": "Optional hint text. Remove this field if no hint is needed.",
-          "answer": "Write the answer here."
+          "id": "question-01",
+          "prompt": "What colour is the sky?",
+          "hint": "Look up! (Unless you're doing this at night, in which case go to bed.)",
+          "answer": "Blue."
         },
         {
-          "id": "template-mcq-1",
-          "prompt": "Write a multiple-choice question here.",
+          "id": "question-02",
+          "prompt": "What is the third letter of the Greek alphabet?",
           "type": "multiple-choice",
-          "answer": "Optional full explanation shown after submission.",
+          "answer": "It's \\\\(\\gamma\\\\), which is the third letter of the Greek alphabet.",
           "options": [
-            "Option A",
-            "Option B",
-            "Option C"
+            "\\\\(\\alpha\\\\)",
+            "\\\\(\\beta\\\\)",
+            "\\\\(\\gamma\\\\)"
           ],
-          "correctIndex": 1
+          "correctIndex": 2
         },
         {
-          "id": "template-numeric-1",
-          "prompt": "Write a numeric-answer question here.",
+          "id": "question-03",
+          "prompt": "What is the value of π (pi)?",
           "type": "numeric",
           "hint": "Optional hint for numeric questions.",
           "answer": "3.14",
           "tolerance": 0.01
         },
         {
-          "id": "template-image-1",
-          "prompt": "This sample uses an uploaded image. Which category looks like the largest positive forcing in the figure?",
+          "id": "question-04",
+          "prompt": "Is this chart about radiative forcings or climate feedbacks?",
           "type": "multiple-choice",
-          "answer": "Carbon dioxide appears to be the largest positive forcing in the sample figure.",
+          "answer": "It's forcings, shown on the x-axis",
           "image": {
             "src": "../imgs/forcings.png",
             "alt": "Sample forcing chart used to demonstrate image questions",
             "caption": "Images stay inside the question box and keep their proportions."
           },
           "options": [
-            "Carbon dioxide",
-            "Aerosols",
-            "Contrails",
-            "Land use change"
+            "Feedbacks",
+            "Forcings"
           ],
-          "correctIndex": 0
+          "correctIndex": 1
         },
         {
-          "id": "template-multipart-1",
+          "id": "question-05",
           "prompt": "This sample shows a multi-part question.",
           "answer": "Part (a) the prompt is split into separate subquestions. Part (b) \\\\(2^3 + 1 = 9\\\\).",
           "parts": [

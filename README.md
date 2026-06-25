@@ -64,3 +64,6 @@ The `src` value should be a relative path that works from the chapter page shell
 ## Chapter loading
 Chapter pages set `data-chapter` on the `<body>` element and load the matching JSON file from `data/chapters/`.
 The renderer also still accepts `window.chapterConfig` for migration compatibility.
+
+## Quirks
+Note that you can't use colons in sentences in the yaml file.

@@ -1,43 +1,41 @@
-chapterTitle: Chapter Template
+chapterTitle: Chapter 02
 categories:
-  - id: category-name
-    name: Category Name
+  - id: review
+    name: Review
     questions:
-      - id: template-basic-1
+      - id: question-01
         type: basic
-        prompt: Write your question prompt here.
-        answer: Write the answer here.
-        hint: Optional hint text. Remove this field if no hint is needed.
-      - id: template-mcq-1
+        prompt: What colour is the sky?
+        answer: Blue.
+        hint: Look up! (Unless you're doing this at night, in which case go to bed.)
+      - id: question-02
         type: multiple-choice
-        prompt: Write a multiple-choice question here.
+        prompt: What is the third letter of the Greek alphabet?
         options:
-          - Option A
-          - Option B
-          - Option C
-        correctIndex: 1
-        answer: Optional full explanation shown after submission.
-      - id: template-numeric-1
+          - \\(\alpha\\)
+          - \\(\beta\\)
+          - \\(\gamma\\)
+        correctIndex: 2
+        answer: It's \\(\gamma\\), which is the third letter of the Greek alphabet.
+      - id: question-03
         type: numeric
-        prompt: Write a numeric-answer question here.
+        prompt: What is the value of π (pi)?
         answer: "3.14"
         tolerance: 0.01
         hint: Optional hint for numeric questions.
-      - id: template-image-1
+      - id: question-04
         type: multiple-choice
-        prompt: This sample uses an uploaded image. Which category looks like the largest positive forcing in the figure?
+        prompt: Is this chart about radiative forcings or climate feedbacks?
         image:
           src: ../imgs/forcings.png
           alt: Sample forcing chart used to demonstrate image questions
           caption: Images stay inside the question box and keep their proportions.
         options:
-          - Carbon dioxide
-          - Aerosols
-          - Contrails
-          - Land use change
-        correctIndex: 0
-        answer: Carbon dioxide appears to be the largest positive forcing in the sample figure.
-      - id: template-multipart-1
+          - Feedbacks
+          - Forcings
+        correctIndex: 1
+        answer: It's forcings, shown on the x-axis
+      - id: question-05
         prompt: This sample shows a multi-part question.
         parts:
           - label: (a)
