@@ -12,11 +12,11 @@ categories:
         type: multiple-choice
         prompt: What is the third letter of the Greek alphabet?
         options:
-          - \\(\alpha\\)
-          - \\(\beta\\)
-          - \\(\gamma\\)
+          - \\\\(\\alpha\\\\)
+          - \\\\(\\beta\\\\)
+          - \\\\(\\gamma\\\\)
         correctIndex: 2
-        answer: It's \\(\gamma\\), which is the third letter of the Greek alphabet.
+        answer: It's \\\\(\\gamma\\\\), which is the third letter of the Greek alphabet.
       - id: question-03
         type: numeric
         prompt: What is the value of π (pi)?
@@ -43,7 +43,7 @@ categories:
             answer: A multi-part question has two or more subquestions that are answered separately.
           - label: (b)
             type: numeric
-            prompt: Evaluate \\(2^3 + 1\\).
+            prompt: Evaluate \\\\(2^3 + 1\\\\).
             answer: "9"
             tolerance: 0
-        answer: Part (a) the prompt is split into separate subquestions. Part (b) \\(2^3 + 1 = 9\\).
+        answer: Part (a) the prompt is split into separate subquestions. Part (b) \\\\(2^3 + 1 = 9\\\\).

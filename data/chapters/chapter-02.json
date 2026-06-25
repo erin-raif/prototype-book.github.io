@@ -15,11 +15,11 @@
           "id": "question-02",
           "prompt": "What is the third letter of the Greek alphabet?",
           "type": "multiple-choice",
-          "answer": "It's \\\\(\\gamma\\\\), which is the third letter of the Greek alphabet.",
+          "answer": "It's \\\\\\\\(\\\\gamma\\\\\\\\), which is the third letter of the Greek alphabet.",
           "options": [
-            "\\\\(\\alpha\\\\)",
-            "\\\\(\\beta\\\\)",
-            "\\\\(\\gamma\\\\)"
+            "\\\\\\\\(\\\\alpha\\\\\\\\)",
+            "\\\\\\\\(\\\\beta\\\\\\\\)",
+            "\\\\\\\\(\\\\gamma\\\\\\\\)"
           ],
           "correctIndex": 2
         },
@@ -50,7 +50,7 @@
         {
           "id": "question-05",
           "prompt": "This sample shows a multi-part question.",
-          "answer": "Part (a) the prompt is split into separate subquestions. Part (b) \\\\(2^3 + 1 = 9\\\\).",
+          "answer": "Part (a) the prompt is split into separate subquestions. Part (b) \\\\\\\\(2^3 + 1 = 9\\\\\\\\).",
           "parts": [
             {
               "prompt": "Write one short sentence explaining what makes a question multi-part.",
@@ -58,7 +58,7 @@
               "answer": "A multi-part question has two or more subquestions that are answered separately."
             },
             {
-              "prompt": "Evaluate \\\\(2^3 + 1\\\\).",
+              "prompt": "Evaluate \\\\\\\\(2^3 + 1\\\\\\\\).",
               "label": "(b)",
               "type": "numeric",
               "answer": "9",
