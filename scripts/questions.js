@@ -21,46 +21,7 @@
       const card = document.createElement("article");
       card.className = "question-card";
 
-      const prompt = document.createElement("p");
-      prompt.className = "question-prompt";
-      prompt.innerHTML = `<strong>Q${index + 1}.</strong> ${question.prompt}`;
-      card.appendChild(prompt);
-
-      if (question.type === "multiple-choice") {
-        card.appendChild(createMultipleChoice(question));
-      }
-
-      if (question.type === "numeric") {
-        card.appendChild(createNumeric(question));
-      }
-
-      if (question.hint) {
-        const hintButton = document.createElement("button");
-        hintButton.className = "question-button";
-        hintButton.type = "button";
-        hintButton.textContent = "Show hint";
-
-        const hintBox = createToggleBox("hint-box", question.hint);
-        hintButton.addEventListener("click", () => {
-          toggleBox(hintBox, hintButton, "Show hint", "Hide hint");
-        });
-
-        card.appendChild(hintButton);
-        card.appendChild(hintBox);
-      }
-
-      const answerButton = document.createElement("button");
-      answerButton.className = "question-button";
-      answerButton.type = "button";
-      answerButton.textContent = "Show answer";
-
-      const answerBox = createToggleBox("answer-box", question.answer);
-      answerButton.addEventListener("click", () => {
-        toggleBox(answerBox, answerButton, "Show answer", "Hide answer");
-      });
-
-      card.appendChild(answerButton);
-      card.appendChild(answerBox);
+      renderQuestionContent(card, question, `Q${index + 1}`);
 
       section.appendChild(card);
     });
@@ -75,6 +36,103 @@
     box.className = `${className} is-hidden`;
     box.innerHTML = content;
     return box;
+  }
+
+  function renderQuestionContent(container, question, label) {
+    const prompt = document.createElement("p");
+    prompt.className = "question-prompt";
+    prompt.innerHTML = `<strong>${label}.</strong> ${question.prompt}`;
+    container.appendChild(prompt);
+
+    if (question.image) {
+      container.appendChild(createQuestionMedia(question.image));
+    }
+
+    if (Array.isArray(question.parts) && question.parts.length > 0) {
+      container.appendChild(createQuestionParts(question.parts, label));
+    } else {
+      const interaction = createQuestionInteraction(question);
+      if (interaction) {
+        container.appendChild(interaction);
+      }
+    }
+
+    if (question.hint) {
+      const hintButton = document.createElement("button");
+      hintButton.className = "question-button";
+      hintButton.type = "button";
+      hintButton.textContent = "Show hint";
+
+      const hintBox = createToggleBox("hint-box", question.hint);
+      hintButton.addEventListener("click", () => {
+        toggleBox(hintBox, hintButton, "Show hint", "Hide hint");
+      });
+
+      container.appendChild(hintButton);
+      container.appendChild(hintBox);
+    }
+
+    if (question.answer) {
+      const answerButton = document.createElement("button");
+      answerButton.className = "question-button";
+      answerButton.type = "button";
+      answerButton.textContent = "Show answer";
+
+      const answerBox = createToggleBox("answer-box", question.answer);
+      answerButton.addEventListener("click", () => {
+        toggleBox(answerBox, answerButton, "Show answer", "Hide answer");
+      });
+
+      container.appendChild(answerButton);
+      container.appendChild(answerBox);
+    }
+  }
+
+  function createQuestionParts(parts, parentLabel) {
+    const list = document.createElement("ol");
+    list.className = "question-parts";
+
+    parts.forEach((part, index) => {
+      const item = document.createElement("li");
+      item.className = "question-part";
+      const partLabel = part.label || `(${String.fromCharCode(97 + index)})`;
+      renderQuestionContent(item, part, `${parentLabel}${partLabel}`);
+      list.appendChild(item);
+    });
+
+    return list;
+  }
+
+  function createQuestionMedia(media) {
+    const figure = document.createElement("figure");
+    figure.className = "question-media";
+
+    const image = document.createElement("img");
+    image.className = "question-image";
+    image.src = media.src;
+    image.alt = media.alt || "";
+
+    figure.appendChild(image);
+
+    if (media.caption) {
+      const caption = document.createElement("figcaption");
+      caption.textContent = media.caption;
+      figure.appendChild(caption);
+    }
+
+    return figure;
+  }
+
+  function createQuestionInteraction(question) {
+    if (question.type === "multiple-choice") {
+      return createMultipleChoice(question);
+    }
+
+    if (question.type === "numeric") {
+      return createNumeric(question);
+    }
+
+    return null;
   }
 
   function toggleBox(box, button, closedText, openText) {

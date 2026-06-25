@@ -35,6 +35,18 @@
                 correctIndex: 1,
                 answer: "\\(\\int_0^1 x \\; dx = 1/2\\)",
                 hint: "Use the power rule for integration."
+              },
+              {
+                type: "multiple-choice",
+                prompt: "The figure below shows several effective radiative forcing categories. Which category has the largest positive contribution?",
+                image: {
+                  src: "../imgs/forcings.png",
+                  alt: "Bar chart of effective radiative forcing by source"
+                },
+                options: ["Carbon dioxide", "Ozone", "Aerosols", "Land use change"],
+                correctIndex: 0,
+                answer: "Carbon dioxide has the largest positive contribution in the chart.",
+                hint: "Look for the longest bar extending to the right."
               }
             ]
           },
@@ -47,6 +59,25 @@
                 answer: "25",
                 hint: "Compute each square, then add.",
                 tolerance: 0
+              },
+              {
+                prompt: "Work through both parts of the question.",
+                parts: [
+                  {
+                    label: "(a)",
+                    prompt: "State one reason an image used in a question should keep its aspect ratio.",
+                    answer: "To avoid distortion and keep the figure readable."
+                  },
+                  {
+                    label: "(b)",
+                    type: "numeric",
+                    prompt: "Evaluate \\(5^2 + 12^2\\).",
+                    answer: "169",
+                    hint: "Work out each square before adding.",
+                    tolerance: 0
+                  }
+                ],
+                answer: "Part (a): preserve the figure's proportions so it stays readable. Part (b): \\(5^2 + 12^2 = 169\\)."
               }
             ]
           }
